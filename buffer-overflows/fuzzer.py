@@ -16,11 +16,11 @@ while True:
       s.settimeout(timeout)
       s.connect((ip, port))
       s.recv(1024)
-      print("Fuzzing with {} bytes".format(len(string) - len(prefix)))
+      print(f"Fuzzing with {len(string) - len(prefix)} bytes")
       s.send(bytes(string, "latin-1"))
       s.recv(1024)
   except:
-    print("Fuzzing crashed at {} bytes".format(len(string) - len(prefix)))
+    print(f"Fuzzing crashed at {len(string) - len(prefix)} bytes")
     sys.exit(0)
   string += 100 * "A"
   time.sleep(1)
