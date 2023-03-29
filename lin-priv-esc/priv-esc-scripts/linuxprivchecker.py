@@ -65,12 +65,11 @@ def printResults(cmdDict):
     return
 
 def writeResults(msg, results):
-    f = open("privcheckout.txt", "a");
-    f.write("[+] " + str(len(results)-1) + " " + msg)
-    for result in results:
-        if result.strip() != "":
-            f.write("    " + result.strip())
-    f.close()
+    with open("privcheckout.txt", "a") as f:
+        f.write(f"[+] {str(len(results) - 1)} {msg}")
+        for result in results:
+            if result.strip() != "":
+                f.write(f"    {result.strip()}")
     return
 
 # Basic system info
